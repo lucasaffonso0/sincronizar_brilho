@@ -1,0 +1,12 @@
+[Unit]
+Description=Serviço que executa meu script após o reinício
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/zsh /usr/local/bin/sincronizar_brilho.sh
+Restart=always
+User=lucas
+Environment="DISPLAY=:1"
+
+[Install]
+WantedBy=multi-user.target
