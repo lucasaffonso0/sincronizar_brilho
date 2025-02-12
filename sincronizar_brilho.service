@@ -1,9 +1,11 @@
 [Unit]
 Description=Serviço que executa meu script após o reinício
-After=network.target
+After=multi-user.target
+Wants=graphical.targe
 
 [Service]
 ExecStart=/usr/bin/zsh /usr/local/bin/sincronizar_brilho.sh
+ExecStartPre=/bin/sleep 10
 Restart=always
 User=lucas
 Environment="DISPLAY=:1"
